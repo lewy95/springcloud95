@@ -24,8 +24,8 @@ eureka:
     fetch-registry: true
     service-url:
       # 入驻地址，多个逗号分隔
-      # defaultZone: http://localhost:7001/eureka/ # 单机版
-      defaultZone: http://eureka7001.com:7001/eureka/, http://eureka7002.com:7002/eureka/ # 集群版
+      defaultZone: http://localhost:7001/eureka/ # 单机版
+      # defaultZone: http://eureka7001.com:7001/eureka/, http://eureka7002.com:7002/eureka/ # 集群版
   instance:
     # 配置服务名称
     instance-id: payment8001

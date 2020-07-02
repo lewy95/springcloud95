@@ -43,4 +43,9 @@ public class PaymentController {
             return JsonResponseEntity.buildBusinessError("没有对应记录");
         }
     }
+
+    @GetMapping("/lb")
+    public String getPaymentLB() {
+        return SERVER_PORT;
+    }
 }
