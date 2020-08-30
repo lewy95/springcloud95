@@ -13,7 +13,7 @@ spring:
           search-paths:
             - cloud-config-client  # 该库下的搜索路径，这里用cloud-config-client目录测试
           username: lewy95
-          password: #密码
+          password: #密码，需要填写
       label: master # 指定默认分支，可以在访问请求上切换
   rabbitmq:
     host: 192.168.56.91
