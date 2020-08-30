@@ -1,0 +1,51 @@
+server:
+  port: 3366
+
+spring:
+  application:
+    name: cloud-config-client-3366
+  cloud:
+    config:
+      label: master # 分支名称
+      name: cloud-config #配置文件名称 name+profile=cloud-config-dev，对应git上的文件名
+      profile: dev # 读取的后缀，上述三个综合，为master分支上的cloud-config-dev.yml的配置文件被读取
+      uri: http://localhost:3344 #配置中心的地址，即config-server的地址
+
+
+#rabbitmq: #rabbitmq相关配置，15672是web管理端口，5672是mq访问端口
+#  port: 5672
+#  host: localhost
+#  username: guest
+#  password: guest
+
+
+eureka:
+  client:
+    # 表示向注册中心注册自己 默认为true
+    register-with-eureka: true
+    # 是否从Eureka Server抓取已有的注册信息，默认为true，单节点无所谓，集群必须设置为true才能配合ribbon使用负载均衡
+    fetch-registry: true
+    service-url:
+      # 入驻地址，多个逗号分隔
+      defaultZone: http://localhost:7001/eureka/ # 单机版
+      # defaultZone: http://eureka7001.com:7001/eureka/, http://eureka7002.com:7002/eureka/ # 集群版
+  instance:
+    # 配置服务名称
+    instance-id: configClient3355
+    # 展示IP地址信息
+    prefer-ip-address: true
+    # eureka客户端向服务端发送心跳的时间间隔 单位秒 默认30
+    # lease-renewal-interval-in-seconds: 1
+    # eureka服务端收到最后一次心跳后等待时间上线（默认是90）超时将剔除服务
+    # lease-expiration-duration-in-seconds: 2
+
+#暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
+
+
